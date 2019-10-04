@@ -6,13 +6,6 @@ class CalculatorWindow:
         self.root= root
         root.title("Calculator")
 
-        MODES = [
-            ("Monochrome", "1"),
-            ("Grayscale", "L"),
-            ("True color", "RGB"),
-            ("Color separation", "CMYK"),
-        ]
-
         v = IntVar()
         v.set(" ")  # initialize
 
