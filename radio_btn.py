@@ -17,6 +17,11 @@ class CalculatorWindow:
         v.set("L")  # initialize
 
         for text, mode in MODES:
+            # for circled - radio buttons
+            #b = Radiobutton(root, text=text,
+            #                variable=v, value=mode,
+            #                width=30)
+            # for button - as radio buttons use indicatoron=0
             b = Radiobutton(root, text=text,
                             variable=v, value=mode,
                             indicatoron=0,
