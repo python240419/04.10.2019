@@ -3,7 +3,7 @@ from tkinter import messagebox
 
 root = Tk()
 root.title("File system project")
-root.geometry("200x250")
+# root.geometry("200x250")
 
 lbl = Label(root, text="A list of favourite countries...")
 lbl.pack()
@@ -30,17 +30,25 @@ btn_del = Button(root, text="delete selected", command=delete_selected_item)
 btn_del.pack()
 
 for n in range(listbox.size()):
-    print(listbox.get(0, "end")[n])
+    print(listbox.get(n))
+
+v = StringVar()
+v.set('')
+entry1 = Entry(root, textvariable = v)
+entry1.pack()
+def add_item():
+    listbox.insert('end', v.get())
+    v.set('')
+btn_add = Button(root, text="add", command=add_item)
+btn_add.pack()
+
 
 def dbl(item):
     if len(listbox.curselection()) > 0:
-        msgbox = messagebox.askquestion('Delete?', 'Sure you want to delete?', icon='warning')
+        selected_item_index = listbox.curselection()[0]
+        msgbox = messagebox.askquestion('Delete?', f'Sure you want to delete {listbox.get(selected_item_index)}?', icon='warning')
         if msgbox == 'yes':
-            selected_item_index = listbox.curselection()[0]
             listbox.delete(selected_item_index)
 listbox.bind('<Double-Button>', dbl)
 
 root.mainloop()
-
-# 1 - delete dialog show the name of the country?
-# 2 - add Entry with "Add" button - will insert the new item into the listbox
