@@ -14,17 +14,21 @@ listbox.insert(3, "Japan")
 listbox.insert(4, "Austrelia")
 listbox.pack()
 
-# 1 - print here the name of the selected country
-btn = Button(root, text="print selected", command=lambda:print(listbox.curselection()[0]))
-btn.pack()
+def print_selected_item():
+    selected_item_index = listbox.curselection()[0]
+    print(listbox.get(selected_item_index))
 
+def delete_selected_item():
+    selected_item_index = listbox.curselection()[0]
+    listbox.delete(selected_item_index)
 
-# 2 - btn delete -- will deleted the selected item
-# help code - listbox.delete( index )
+btn_print = Button(root, text="print selected", command=print_selected_item)
+btn_print.pack()
+
+btn_del = Button(root, text="delete selected", command=delete_selected_item)
+btn_del.pack()
 
 for n in range(listbox.size()):
     print(listbox.get(0, "end")[n])
-
-
 
 root.mainloop()
