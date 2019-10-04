@@ -41,3 +41,6 @@ def dbl(item):
 listbox.bind('<Double-Button>', dbl)
 
 root.mainloop()
+
+# 1 - delete dialog show the name of the country?
+# 2 - add Entry with "Add" button - will insert the new item into the listbox
